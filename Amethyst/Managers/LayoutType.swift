@@ -15,6 +15,7 @@ enum LayoutType<Window: WindowType>: String, CaseIterable {
 
     case tall = "tall"
     case tallRight = "tall-right"
+    case tallStack = "tall-stack"
     case wide = "wide"
     case threeColumnLeft = "3column-left"
     case threeColumnMiddle = "middle-wide"
@@ -33,6 +34,8 @@ enum LayoutType<Window: WindowType>: String, CaseIterable {
             return TallLayout<Window>.self
         case .tallRight:
             return TallRightLayout<Window>.self
+        case .tallStack:
+            return TallStackLayout<Window>.self
         case .wide:
             return WideLayout<Window>.self
         case .threeColumnLeft:
@@ -142,6 +145,8 @@ enum LayoutType<Window: WindowType>: String, CaseIterable {
             return try decoder.decode(TallLayout.self, from: data)
         case .tallRight:
             return try decoder.decode(TallRightLayout.self, from: data)
+        case .tallStack:
+            return try decoder.decode(TallStackLayout.self, from: data)
         case .wide:
             return try decoder.decode(WideLayout.self, from: data)
         case .threeColumnLeft:
